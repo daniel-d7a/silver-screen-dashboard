@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 #[Fillable(['tmdb_movie_id', 'screen', 'starts_at', 'tier', 'price'])]
 class Showtime extends Model
 {
+    use HasUuid;
+
     protected $table = 'showtimes';
 
     public $incrementing = false;

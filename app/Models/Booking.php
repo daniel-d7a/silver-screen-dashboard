@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[Fillable(['user_id', 'showtime_id', 'seat_ids', 'status', 'idempotency_key', 'stripe_payment_intent_id', 'confirmed_at', 'cancelled_at'])]
 class Booking extends Model
 {
+    use HasUuid;
+
     protected $table = 'bookings';
 
     public $incrementing = false;
