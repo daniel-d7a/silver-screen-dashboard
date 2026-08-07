@@ -6,8 +6,8 @@ Admin dashboard for a cinema ticket booking app. Built with Laravel + Filament, 
 
 ## Tech Stack
 
-- **Framework:** Laravel 12.x
-- **Admin Panel:** Filament 4.x
+- **Framework:** Laravel 13.x
+- **Admin Panel:** Filament 5.x
 - **Database:** Supabase (PostgreSQL) — schema managed externally, no Laravel migrations
 - **Auth:** Separate `admin_users` table (not Clerk — Clerk handles app auth)
 - **Deployment:** Docker (nginx + php-fpm)
