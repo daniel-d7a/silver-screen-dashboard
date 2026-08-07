@@ -168,3 +168,22 @@ silver-screen-admin/
 - `seats.held_until` = now + 15 minutes when a user initiates booking
 - Checkout fails if `held_until < now` (hold expired)
 - App only shows seats where `held_until IS NULL OR held_until < now` (available)
+
+## First-Time Setup (after connecting Supabase)
+
+1. Fill in `DB_PASSWORD` in `.env` (host/port/database/username are already set).
+2. Create the first admin login:
+   ```bash
+   php artisan make:filament-user
+   ```
+   Resolves the model from the panel's `admin` guard, so it writes to `admin_users`.
+3. (Optional) Seed some `default_showtimes` templates via the dashboard at `/admin/default-showtimes`.
+
+## Verification Checklist (run once DB is connected)
+
+- Login at `/admin` with the created Filament user.
+- Films: create, edit, delete all succeed; table lists existing films.
+- Showtimes: create a showtime → 48 seats (A1–F8) auto-created.
+- Default showtimes: CRUD works.
+- Film → "Add showtimes" action: pick a date + check default showtimes → creates one showtime per selection, each with 48 seats.
+- Bookings / Seats / Profiles / Bookmarks: pages load (read-only, no create buttons).
