@@ -1,0 +1,14 @@
+.git
+.agents
+.env
+.git
+.gitignore
+vendor
+node_modules
+public/build
+docker-compose.yml
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+tests
