@@ -117,7 +117,7 @@ On `Showtime::created` event (via Eloquent `booted()` method):
 
 ## Phase 6: Docker
 
-**Dockerfile** (multi-stage, PHP 8.3 + nginx):
+**Dockerfile** (multi-stage, PHP 8.5 + nginx — includes dev deps for a dev container):
 - Stage 1: Build assets with Node
 - Stage 2: PHP-FPM with dependencies
 - Nginx serving public/ + PHP-FPM
