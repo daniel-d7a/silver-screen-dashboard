@@ -15,7 +15,7 @@ class EditFilm extends EditRecord
     {
         return [
             DeleteAction::make(),
-            BulkCreateShowtimesAction::make()
+            BulkCreateShowtimesAction::make('bulk-create-showtimes')
                 ->record(fn (): ?\App\Models\Film => $this->getRecord()),
         ];
     }

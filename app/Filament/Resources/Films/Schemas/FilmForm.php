@@ -4,9 +4,8 @@ namespace App\Filament\Resources\Films\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TagsInput;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -17,7 +16,6 @@ class FilmForm
         return $schema
             ->components([
                 Section::make()
-                    ->columns(2)
                     ->schema([
                         TextInput::make('tmdb_id')
                             ->label('TMDB ID')
@@ -27,10 +25,9 @@ class FilmForm
                         TextInput::make('title')
                             ->required()
                             ->maxLength(255),
-                        TextArea::make('description')
+                        Textarea::make('description')
                             ->rows(4)
                             ->columnSpanFull(),
-                        Grid::make(2)->schema([
                             TextInput::make('poster_url')
                                 ->label('Poster URL')
                                 ->url()
@@ -38,19 +35,16 @@ class FilmForm
                             TextInput::make('trailer')
                                 ->url()
                                 ->placeholder('https://www.youtube.com/watch?v=...'),
-                        ]),
-                        Grid::make(4)->schema([
-                            DatePicker::make('release_date'),
-                            TextInput::make('rating')
-                                ->numeric()
-                                ->minValue(0)
-                                ->maxValue(10)
-                                ->step(0.1),
-                            TextInput::make('runtime')
-                                ->numeric()
-                                ->label('Runtime (min)'),
-                            TextInput::make('starring'),
-                        ]),
+                                DatePicker::make('release_date'),
+                                TextInput::make('rating')
+                                    ->numeric()
+                                    ->minValue(0)
+                                    ->maxValue(10)
+                                    ->step(0.1),
+                                TextInput::make('runtime')
+                                    ->numeric()
+                                    ->label('Runtime (min)'),
+                                TextInput::make('starring'),
                         TagsInput::make('genres')
                             ->label('Genres')
                             ->columnSpanFull(),
