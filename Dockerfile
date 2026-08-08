@@ -26,11 +26,12 @@ RUN apk add --no-cache \
         postgresql-dev \
         libzip-dev \
         icu-dev \
+        gettext \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl pdo pdo_pgsql zip
 
 COPY --from=assets /app /var/www/html
-COPY docker/nginx.conf /etc/nginx/http.d/default.conf
+COPY docker/nginx.conf /etc/nginx/nginx.conf.template
 COPY docker/supervisord.conf /etc/supervisord.conf
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
